@@ -33,7 +33,7 @@ const WORKS_DATA = [
 
 export function Works() {
   return (
-    <section id="works" className="py-24 bg-white">
+    <section id="works" className="py-24 bg-gradient-to-b from-white to-[#fafcfe]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading title="実績紹介" subtitle="Works" />
 
@@ -45,35 +45,28 @@ export function Works() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-background-alt rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+              className="bg-white rounded-sm shadow-sm hover:shadow-md transition-shadow border border-gray-100"
             >
-              {/* Placeholder for Before/After photos */}
-              <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                <div className="text-center">
-                  <p className="text-sm text-text-secondary font-sans">
-                    施工写真
-                  </p>
-                  <p className="text-xs text-gray-400 mt-1 font-sans">
-                    準備中
-                  </p>
+              <div className="p-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="shrink-0 w-10 h-10 flex items-center justify-center bg-primary/10 text-primary-dark font-bold text-sm rounded-full font-sans">
+                    {index + 1}
+                  </span>
+                  <h3 className="text-lg font-semibold tracking-wide">
+                    {work.title}
+                  </h3>
                 </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-lg font-semibold mb-3 tracking-wide">
-                  {work.title}
-                </h3>
-                <p className="text-sm text-text-secondary leading-relaxed mb-4">
+                <p className="text-sm text-text-secondary leading-relaxed mb-5">
                   {work.description}
                 </p>
                 <div className="flex flex-wrap gap-3 text-xs font-sans text-text-secondary">
-                  <span className="px-3 py-1 bg-white rounded-full">
+                  <span className="px-3 py-1 bg-[#f0f7fc] rounded-full">
                     {work.area}
                   </span>
-                  <span className="px-3 py-1 bg-white rounded-full">
+                  <span className="px-3 py-1 bg-[#f0f7fc] rounded-full">
                     {work.structure}
                   </span>
-                  <span className="px-3 py-1 bg-white rounded-full">
+                  <span className="px-3 py-1 bg-[#f0f7fc] rounded-full">
                     工期: {work.period}
                   </span>
                 </div>

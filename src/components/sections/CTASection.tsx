@@ -7,8 +7,9 @@ import { COMPANY } from "@/lib/constants";
 
 export function CTASection() {
   return (
-    <section className="py-24 bg-gradient-to-br from-[#5A9BC2] to-[#7EB8D8] text-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section className="relative py-24 overflow-hidden text-white">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#7CBCE0] via-[#8EC8E8] to-[#B3D9EE]" />
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -27,13 +28,13 @@ export function CTASection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 bg-white text-primary-dark text-lg font-semibold rounded-sm hover:bg-gray-100 transition-colors tracking-wide shadow-lg"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 rounded-lg bg-white/85 backdrop-blur-sm text-primary-dark text-lg font-semibold hover:bg-white/95 transition-all tracking-wide shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
               お問い合わせフォーム
             </Link>
             <a
               href={`tel:${COMPANY.tel}`}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-10 py-4 border-2 border-white text-white text-lg font-sans font-medium rounded-sm hover:bg-white/10 transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-10 py-4 rounded-lg bg-white/85 backdrop-blur-sm text-primary-dark text-lg font-sans font-semibold hover:bg-white/95 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
               <Phone className="w-5 h-5" />
               {COMPANY.tel}

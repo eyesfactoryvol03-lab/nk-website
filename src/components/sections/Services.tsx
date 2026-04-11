@@ -1,13 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { SectionHeading } from "@/components/SectionHeading";
 import { CTAButton } from "@/components/CTAButton";
 import { PRICING, WORKFLOW } from "@/lib/constants";
+import { STOCK_IMAGE_ALTS, STOCK_IMAGES } from "@/lib/stockImages";
 
 export function Services() {
   return (
-    <section id="services" className="py-24 bg-background-alt">
+    <section id="services" className="py-24 bg-[#f5fafd]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading title="サービス・料金" subtitle="Services & Pricing" />
 
@@ -24,16 +26,22 @@ export function Services() {
               title: "家屋解体",
               description:
                 "木造・鉄骨造・RC造など、あらゆる構造の建物解体に対応いたします。",
+              image: STOCK_IMAGES.serviceHouse,
+              imageAlt: STOCK_IMAGE_ALTS.serviceHouse,
             },
             {
               title: "内装解体",
               description:
                 "店舗・オフィスの内装解体、原状回復工事を承ります。",
+              image: STOCK_IMAGES.serviceInterior,
+              imageAlt: STOCK_IMAGE_ALTS.serviceInterior,
             },
             {
               title: "残置物撤去",
               description:
                 "建物内の残置物の撤去・処分も一括で対応いたします。",
+              image: STOCK_IMAGES.serviceClearance,
+              imageAlt: STOCK_IMAGE_ALTS.serviceClearance,
             },
           ].map((service, index) => (
             <motion.div
@@ -42,14 +50,25 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white p-8 rounded-sm shadow-sm hover:shadow-md transition-shadow"
+              className="bg-white rounded-sm shadow-sm hover:shadow-md transition-shadow overflow-hidden"
             >
+              <div className="relative aspect-[16/10]">
+                <Image
+                  src={service.image}
+                  alt={service.imageAlt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                />
+              </div>
+              <div className="p-8">
               <h3 className="text-xl font-semibold mb-3 tracking-wide">
                 {service.title}
               </h3>
               <p className="text-sm text-text-secondary leading-relaxed">
                 {service.description}
               </p>
+              </div>
             </motion.div>
           ))}
         </motion.div>

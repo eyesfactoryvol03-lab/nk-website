@@ -14,7 +14,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export function Strengths() {
   return (
-    <section id="strengths" className="py-24 bg-white">
+    <section id="strengths" className="py-24 bg-gradient-to-b from-white to-[#f7fbfd]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading title="選ばれる理由" subtitle="Our Strengths" />
 

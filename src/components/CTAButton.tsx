@@ -35,7 +35,7 @@ export function CTAButton({
     return (
       <Link
         href="/contact"
-        className={`inline-flex items-center justify-center border-2 border-primary text-primary font-medium rounded-sm hover:bg-primary hover:text-white transition-colors tracking-wide ${sizeClasses[size]} ${className}`}
+        className={`inline-flex items-center justify-center bg-primary-dark text-white font-medium rounded-lg hover:bg-accent transition-all shadow-lg shadow-primary-dark/30 hover:shadow-xl hover:shadow-primary-dark/40 hover:-translate-y-0.5 tracking-wide ${sizeClasses[size]} ${className}`}
       >
         無料お見積もり
       </Link>
@@ -45,7 +45,7 @@ export function CTAButton({
   return (
     <Link
       href="/contact"
-      className={`inline-flex items-center justify-center bg-primary text-white font-medium rounded-sm hover:bg-primary-dark transition-colors tracking-wide ${sizeClasses[size]} ${className}`}
+      className={`inline-flex items-center justify-center bg-primary-dark text-white font-medium rounded-lg hover:bg-accent transition-all shadow-lg shadow-primary-dark/30 hover:shadow-xl hover:shadow-primary-dark/40 hover:-translate-y-0.5 tracking-wide ${sizeClasses[size]} ${className}`}
     >
       お問い合わせはこちら
     </Link>

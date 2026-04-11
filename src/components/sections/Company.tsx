@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { SectionHeading } from "@/components/SectionHeading";
 import { COMPANY } from "@/lib/constants";
+import { STOCK_IMAGE_ALTS, STOCK_IMAGES } from "@/lib/stockImages";
 
 const COMPANY_INFO = [
   { label: "会社名", value: COMPANY.name },
@@ -16,7 +18,7 @@ const COMPANY_INFO = [
 
 export function Company() {
   return (
-    <section id="company" className="py-24 bg-background-alt">
+    <section id="company" className="py-24 bg-[#f0f7fc]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading title="会社概要" subtitle="Company" />
 
@@ -28,6 +30,16 @@ export function Company() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
+            <div className="relative aspect-[16/9] mb-8 rounded-sm overflow-hidden shadow-md">
+              <Image
+                src={STOCK_IMAGES.company}
+                alt={STOCK_IMAGE_ALTS.company}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/15 to-transparent pointer-events-none" />
+            </div>
             <div className="bg-white rounded-sm shadow-sm overflow-hidden">
               <table className="w-full text-sm">
                 <tbody>

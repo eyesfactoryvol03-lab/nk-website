@@ -66,9 +66,9 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <a
               href={`tel:${COMPANY.tel}`}
-              className="flex items-center gap-2 text-sm font-sans font-medium text-text-primary"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-dark text-white text-sm font-sans font-medium rounded-sm hover:bg-accent transition-colors"
             >
-              <Phone className="w-4 h-4 text-primary" />
+              <Phone className="w-4 h-4" />
               <span className="tracking-wider">{COMPANY.tel}</span>
             </a>
             <Link

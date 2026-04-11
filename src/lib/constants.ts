@@ -23,25 +23,25 @@ export const NAV_ITEMS = [
 export const PRICING = [
   {
     type: "木造",
-    price: "27,000〜29,500円",
+    price: "27,000円〜",
     unit: "延べ床面積1坪あたり",
     note: "",
   },
   {
     type: "鉄骨造",
-    price: "50,000〜70,000円",
+    price: "50,000円〜",
     unit: "延べ床面積1坪あたり",
     note: "",
   },
   {
     type: "RC造",
-    price: "70,000〜100,000円",
+    price: "70,000円〜",
     unit: "延べ床面積1坪あたり",
     note: "",
   },
   {
     type: "内装解体",
-    price: "15,000〜40,000円",
+    price: "15,000円〜",
     unit: "延べ床面積1坪あたり",
     note: "内容により変動",
   },
