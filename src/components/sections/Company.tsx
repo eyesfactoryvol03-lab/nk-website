@@ -30,13 +30,14 @@ export function Company() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="relative aspect-[16/9] mb-8 rounded-sm overflow-hidden shadow-md">
+            <div className="relative aspect-[16/9] mb-8 rounded-sm overflow-hidden shadow-md bg-gray-100">
               <Image
                 src={STOCK_IMAGES.company}
                 alt={STOCK_IMAGE_ALTS.company}
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                loading="eager"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/15 to-transparent pointer-events-none" />
             </div>

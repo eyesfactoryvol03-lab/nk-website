@@ -52,13 +52,14 @@ export function Services() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-white rounded-sm shadow-sm hover:shadow-md transition-shadow overflow-hidden"
             >
-              <div className="relative aspect-[16/10]">
+              <div className="relative aspect-[16/10] bg-gray-100">
                 <Image
                   src={service.image}
                   alt={service.imageAlt}
                   fill
                   className="object-cover"
                   sizes="(max-width: 640px) 100vw, 33vw"
+                  loading="eager"
                 />
               </div>
               <div className="p-8">
