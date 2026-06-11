@@ -35,10 +35,10 @@ export default function ContactPage() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          tel: formData.tel,
-          message: formData.message,
+          お名前: formData.name,
+          メールアドレス: formData.email,
+          電話番号: formData.tel,
+          お問い合わせ内容: formData.message,
         }),
       });
 
