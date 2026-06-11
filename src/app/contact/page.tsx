@@ -20,16 +20,38 @@ export default function ContactPage() {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
 
-    // TODO: フォーム送信処理を実装
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch("https://formspree.io/f/xqeodyzb", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          tel: formData.tel,
+          message: formData.message,
+        }),
+      });
 
-    setIsSubmitted(true);
-    setIsSubmitting(false);
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        setError("送信に失敗しました。時間をおいて再度お試しください。");
+      }
+    } catch {
+      setError("送信に失敗しました。時間をおいて再度お試しください。");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -149,6 +171,7 @@ export default function ContactPage() {
                   <input
                     type="text"
                     id="name"
+                    name="name"
                     required
                     value={formData.name}
                     onChange={(e) =>
@@ -172,6 +195,7 @@ export default function ContactPage() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     required
                     value={formData.email}
                     onChange={(e) =>
@@ -195,6 +219,7 @@ export default function ContactPage() {
                   <input
                     type="tel"
                     id="tel"
+                    name="tel"
                     required
                     value={formData.tel}
                     onChange={(e) =>
@@ -217,6 +242,7 @@ export default function ContactPage() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     required
                     rows={6}
                     value={formData.message}
@@ -227,6 +253,12 @@ export default function ContactPage() {
                     placeholder="ご質問やお見積もりのご依頼など、お気軽にご記入ください。"
                   />
                 </div>
+
+                {error && (
+                  <div className="p-4 bg-red-50 text-red-600 text-sm rounded-sm">
+                    {error}
+                  </div>
+                )}
 
                 <div className="text-xs text-text-secondary leading-relaxed">
                   <p>
