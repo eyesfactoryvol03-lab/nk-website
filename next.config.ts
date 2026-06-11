@@ -13,11 +13,6 @@ const nextConfig: NextConfig = {
         hostname: "images.pexels.com",
         pathname: "/**",
       },
-      {
-        protocol: "https",
-        hostname: "user0514.cdnw.net",
-        pathname: "/**",
-      },
     ],
   },
 };
