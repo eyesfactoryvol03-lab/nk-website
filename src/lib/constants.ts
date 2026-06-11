@@ -16,7 +16,6 @@ export const NAV_ITEMS = [
   { label: "サービス", href: "#services" },
   { label: "実績紹介", href: "#works" },
   { label: "会社概要", href: "#company" },
-  { label: "お客様の声", href: "#testimonials" },
   { label: "ブログ", href: "/blog" },
 ] as const;
 

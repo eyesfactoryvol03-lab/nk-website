@@ -20,7 +20,7 @@ export const STOCK_IMAGES = {
   work3:
     "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=900&q=80",
   company:
-    "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1636680463293-7d7a81e24799?auto=format&fit=crop&w=900&q=80",
   testimonialsBanner:
     "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80",
   ctaBackground:
@@ -36,7 +36,7 @@ export const STOCK_IMAGE_ALTS = {
   work1: "工事現場での安全装備（イメージ）",
   work2: "建設・クレーンと青空（イメージ）",
   work3: "昼光の工事・作業現場（イメージ）",
-  company: "青空の下の住宅（イメージ）",
+  company: "芝生のある日本の木造住宅（イメージ）",
   testimonialsBanner: "笑顔の人々（イメージ）",
   ctaBackground: "明るいオフィス・窓際のイメージ",
 } as const;

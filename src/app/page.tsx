@@ -3,7 +3,6 @@ import { Strengths } from "@/components/sections/Strengths";
 import { Services } from "@/components/sections/Services";
 import { Works } from "@/components/sections/Works";
 import { Company } from "@/components/sections/Company";
-import { Testimonials } from "@/components/sections/Testimonials";
 import { CTASection } from "@/components/sections/CTASection";
 
 export default function Home() {
@@ -14,7 +13,6 @@ export default function Home() {
       <Services />
       <Works />
       <Company />
-      <Testimonials />
       <CTASection />
     </>
   );
