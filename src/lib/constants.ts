@@ -12,10 +12,10 @@ export const COMPANY = {
 } as const;
 
 export const NAV_ITEMS = [
-  { label: "強み", href: "#strengths" },
-  { label: "サービス", href: "#services" },
-  { label: "実績紹介", href: "#works" },
-  { label: "会社概要", href: "#company" },
+  { label: "強み", href: "/#strengths" },
+  { label: "サービス", href: "/#services" },
+  { label: "実績紹介", href: "/#works" },
+  { label: "会社概要", href: "/#company" },
   { label: "ブログ", href: "/blog" },
 ] as const;
 
