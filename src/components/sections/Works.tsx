@@ -7,7 +7,20 @@ import { ChevronDown } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
 import { CTAButton } from "@/components/CTAButton";
 
-const WORKS_DATA = [
+type WorkData = {
+  id: number;
+  date: string;
+  title: string;
+  area: string;
+  structure: string;
+  description: string;
+  images?: {
+    before?: string;
+    after: string[];
+  };
+};
+
+const WORKS_DATA: WorkData[] = [
   {
     id: 1,
     date: "2026年5月",
@@ -50,9 +63,63 @@ const WORKS_DATA = [
       after: ["/images/works/kiyose-after.png"],
     },
   },
+  {
+    id: 4,
+    date: "2025年11月",
+    title: "解体工事",
+    area: "中野区上鷺宮",
+    structure: "木造",
+    description:
+      "作業後の清掃もしっかりとしてからお引き渡しをいたします。",
+    images: {
+      before: "/images/works/kamisaginomiya-before.png",
+      after: ["/images/works/kamisaginomiya-after.png"],
+    },
+  },
+  {
+    id: 5,
+    date: "2025年10月",
+    title: "解体工事",
+    area: "上尾市愛宕",
+    structure: "木造",
+    description:
+      "植栽もご相談ください。抜根から整地までお見積もりをお出しします。",
+    images: {
+      before: "/images/works/ageo-before.png",
+      after: ["/images/works/ageo-after.png"],
+    },
+  },
+  {
+    id: 6,
+    date: "2025年9月",
+    title: "解体工事",
+    area: "練馬区立野町",
+    structure: "木造",
+    description:
+      "敷地延長の奥まった土地でもお任せください。",
+    images: {
+      after: [
+        "/images/works/tatenomachi-after1.png",
+        "/images/works/tatenomachi-after2.png",
+      ],
+    },
+  },
+  {
+    id: 7,
+    date: "2025年8月",
+    title: "解体工事",
+    area: "杉並区高井戸東",
+    structure: "木造",
+    description:
+      "間口の狭い現場も手壊しで丁寧に作業いたします。",
+    images: {
+      before: "/images/works/takaido-before.png",
+      after: ["/images/works/takaido-after.png"],
+    },
+  },
 ];
 
-function WorkItem({ work, index }: { work: (typeof WORKS_DATA)[number]; index: number }) {
+function WorkItem({ work, index }: { work: WorkData; index: number }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -111,22 +178,24 @@ function WorkItem({ work, index }: { work: (typeof WORKS_DATA)[number]; index: n
 
               {work.images && (
                 <>
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                    <div>
-                      <p className="text-xs font-semibold text-text-secondary mb-2 tracking-wider font-sans">
-                        ▼ 施工前
-                      </p>
-                      <div className="relative aspect-[16/10] rounded-md overflow-hidden bg-gray-100">
-                        <Image
-                          src={work.images.before}
-                          alt={`${work.title} 施工前`}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 1024px) 100vw, 50vw"
-                          loading="eager"
-                        />
+                  <div className={`grid grid-cols-1 ${work.images.before ? "lg:grid-cols-2" : ""} gap-6 mb-6`}>
+                    {work.images.before && (
+                      <div>
+                        <p className="text-xs font-semibold text-text-secondary mb-2 tracking-wider font-sans">
+                          ▼ 施工前
+                        </p>
+                        <div className="relative aspect-[16/10] rounded-md overflow-hidden bg-gray-100">
+                          <Image
+                            src={work.images.before}
+                            alt={`${work.title} 施工前`}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            loading="eager"
+                          />
+                        </div>
                       </div>
-                    </div>
+                    )}
                     <div>
                       <p className="text-xs font-semibold text-text-secondary mb-2 tracking-wider font-sans">
                         ▼ 施工後
