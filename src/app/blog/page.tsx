@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { WORKS_DATA } from "@/lib/worksData";
 
 export const metadata: Metadata = {
   title: "ブログ・お知らせ",
@@ -7,22 +8,63 @@ export const metadata: Metadata = {
     "N.K株式会社のブログ・お知らせページです。解体工事に関する情報やお知らせを掲載しています。",
 };
 
-const BLOG_POSTS = [
+type BlogPost = {
+  slug: string;
+  title: string;
+  date: string;
+  sortKey: string;
+  category: string;
+  excerpt: string;
+};
+
+const MANUAL_POSTS: BlogPost[] = [
   {
     slug: "greeting",
-    title: "ホームページを開設しました",
+    title: "ホームページをリニューアルしました",
     date: "2026.03.28",
+    sortKey: "2026-03-28",
     category: "お知らせ",
     excerpt:
-      "N.K株式会社のホームページを開設いたしました。解体工事に関する情報を発信してまいります。今後ともよろしくお願いいたします。",
+      "N.K株式会社のホームページをリニューアルいたしました。解体工事に関する情報を発信してまいります。今後ともよろしくお願いいたします。",
   },
 ];
 
+function parseWorksDate(date: string): { display: string; sortKey: string } {
+  const match = date.match(/(\d{4})年(\d{1,2})月/);
+  if (!match) return { display: date, sortKey: "0000-00-00" };
+  const [, year, month] = match;
+  return {
+    display: `${year}.${month.padStart(2, "0")}.01`,
+    sortKey: `${year}-${month.padStart(2, "0")}-01`,
+  };
+}
+
+function generateWorksPosts(): BlogPost[] {
+  return WORKS_DATA.map((work) => {
+    const { display, sortKey } = parseWorksDate(work.date);
+    return {
+      slug: `works-${work.id}`,
+      title: `実績を追加しました — ${work.area}`,
+      date: display,
+      sortKey,
+      category: "実績紹介",
+      excerpt: `${work.area}にて${work.title}が完了いたしました。${work.description}`,
+    };
+  });
+}
+
+function getAllPosts(): BlogPost[] {
+  const worksPosts = generateWorksPosts();
+  const allPosts = [...MANUAL_POSTS, ...worksPosts];
+  return allPosts.sort((a, b) => b.sortKey.localeCompare(a.sortKey));
+}
+
 export default function BlogPage() {
+  const posts = getAllPosts();
+
   return (
     <div className="pt-28 pb-24 bg-background-alt">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Page Header */}
         <div className="text-center mb-12">
           <h1 className="text-3xl font-semibold tracking-wide mb-3">
             ブログ・お知らせ
@@ -33,9 +75,8 @@ export default function BlogPage() {
           <div className="mt-4 w-16 h-0.5 bg-primary mx-auto" />
         </div>
 
-        {/* Blog List */}
         <div className="space-y-6">
-          {BLOG_POSTS.map((post) => (
+          {posts.map((post) => (
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
@@ -58,14 +99,6 @@ export default function BlogPage() {
             </Link>
           ))}
         </div>
-
-        {BLOG_POSTS.length === 0 && (
-          <div className="text-center py-16">
-            <p className="text-text-secondary">
-              現在、記事の準備中です。
-            </p>
-          </div>
-        )}
       </div>
     </div>
   );
