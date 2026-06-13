@@ -58,6 +58,19 @@ export const WORKS_DATA: WorkData[] = [
     id: 4,
     date: "2025年11月",
     title: "解体工事",
+    area: "川口市南鳩ヶ谷",
+    structure: "木造",
+    description:
+      "内装を手作業ではがし分別リサイクルを徹底しています。",
+    images: {
+      before: "/images/works/minamihatogaya-before.png",
+      after: ["/images/works/minamihatogaya-after.png"],
+    },
+  },
+  {
+    id: 5,
+    date: "2025年11月",
+    title: "解体工事",
     area: "中野区上鷺宮",
     structure: "木造",
     description:
@@ -68,7 +81,20 @@ export const WORKS_DATA: WorkData[] = [
     },
   },
   {
-    id: 5,
+    id: 6,
+    date: "2025年10月",
+    title: "解体工事",
+    area: "江戸川区東小岩",
+    structure: "木造",
+    description:
+      "隣地との距離が近く車も停まっているため裏までしっかり養生しております。",
+    images: {
+      before: "/images/works/higashikoiwa-before.png",
+      after: ["/images/works/higashikoiwa-after.png"],
+    },
+  },
+  {
+    id: 7,
     date: "2025年10月",
     title: "解体工事",
     area: "上尾市愛宕",
@@ -81,7 +107,20 @@ export const WORKS_DATA: WorkData[] = [
     },
   },
   {
-    id: 6,
+    id: 8,
+    date: "2025年9月",
+    title: "解体工事",
+    area: "三鷹市中原",
+    structure: "木造",
+    description:
+      "防護シートぐるりと巻いてからの作業開始。",
+    images: {
+      before: "/images/works/nakahara-before.png",
+      after: ["/images/works/nakahara-after.png"],
+    },
+  },
+  {
+    id: 9,
     date: "2025年9月",
     title: "解体工事",
     area: "練馬区立野町",
@@ -96,7 +135,7 @@ export const WORKS_DATA: WorkData[] = [
     },
   },
   {
-    id: 7,
+    id: 10,
     date: "2025年8月",
     title: "解体工事",
     area: "杉並区高井戸東",
