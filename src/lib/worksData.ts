@@ -56,6 +56,19 @@ export const WORKS_DATA: WorkData[] = [
   },
   {
     id: 4,
+    date: "2025年12月",
+    title: "解体工事",
+    area: "川崎市高津区子母口",
+    structure: "木造",
+    description:
+      "建物未登記、増築あり。現地確認をしてお見積もりをお出しします。",
+    images: {
+      before: "/images/works/shimoguchi-before.png",
+      after: ["/images/works/shimoguchi-after.png"],
+    },
+  },
+  {
+    id: 5,
     date: "2025年11月",
     title: "解体工事",
     area: "川口市南鳩ヶ谷",
@@ -68,7 +81,20 @@ export const WORKS_DATA: WorkData[] = [
     },
   },
   {
-    id: 5,
+    id: 6,
+    date: "2025年11月",
+    title: "解体工事",
+    area: "草加市新里町",
+    structure: "木造",
+    description:
+      "作業後の清掃もしっかりとしてからお引き渡しをいたします。",
+    images: {
+      before: "/images/works/niisatomachi-before.png",
+      after: ["/images/works/niisatomachi-after.png"],
+    },
+  },
+  {
+    id: 7,
     date: "2025年11月",
     title: "解体工事",
     area: "中野区上鷺宮",
@@ -81,7 +107,7 @@ export const WORKS_DATA: WorkData[] = [
     },
   },
   {
-    id: 6,
+    id: 8,
     date: "2025年10月",
     title: "解体工事",
     area: "江戸川区東小岩",
@@ -94,7 +120,7 @@ export const WORKS_DATA: WorkData[] = [
     },
   },
   {
-    id: 7,
+    id: 9,
     date: "2025年10月",
     title: "解体工事",
     area: "上尾市愛宕",
@@ -107,7 +133,7 @@ export const WORKS_DATA: WorkData[] = [
     },
   },
   {
-    id: 8,
+    id: 10,
     date: "2025年9月",
     title: "解体工事",
     area: "三鷹市中原",
@@ -120,7 +146,7 @@ export const WORKS_DATA: WorkData[] = [
     },
   },
   {
-    id: 9,
+    id: 11,
     date: "2025年9月",
     title: "解体工事",
     area: "練馬区立野町",
@@ -135,7 +161,7 @@ export const WORKS_DATA: WorkData[] = [
     },
   },
   {
-    id: 10,
+    id: 12,
     date: "2025年8月",
     title: "解体工事",
     area: "杉並区高井戸東",
