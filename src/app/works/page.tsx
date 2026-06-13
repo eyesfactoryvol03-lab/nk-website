@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { ChevronDown } from "lucide-react";
-import { SectionHeading } from "@/components/SectionHeading";
-import { CTAButton } from "@/components/CTAButton";
+import Link from "next/link";
+import { ChevronDown, ArrowLeft } from "lucide-react";
 import { WORKS_DATA, type WorkData } from "@/lib/worksData";
+import { CTAButton } from "@/components/CTAButton";
 
 function WorkItem({ work, index }: { work: WorkData; index: number }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +16,7 @@ function WorkItem({ work, index }: { work: WorkData; index: number }) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
+      transition={{ duration: 0.5, delay: index * 0.05 }}
       className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden"
     >
       <button
@@ -131,36 +131,41 @@ function WorkItem({ work, index }: { work: WorkData; index: number }) {
   );
 }
 
-export function Works() {
+export default function WorksPage() {
   return (
-    <section
-      id="works"
-      className="py-24 bg-gradient-to-b from-white to-[#fafcfe]"
-    >
+    <div className="pt-28 pb-24 bg-gradient-to-b from-[#fafcfe] to-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading title="実績紹介" subtitle="Works" />
+        <Link
+          href="/#works"
+          className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-primary-dark transition-colors mb-8"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          トップページに戻る
+        </Link>
+
+        <div className="text-center mb-12">
+          <h1 className="text-3xl font-semibold tracking-wide mb-3">
+            実績紹介
+          </h1>
+          <p className="text-sm text-text-secondary tracking-widest uppercase font-sans">
+            Works
+          </p>
+          <div className="mt-4 w-16 h-0.5 bg-primary mx-auto" />
+          <p className="mt-4 text-sm text-text-secondary">
+            全 {WORKS_DATA.length} 件
+          </p>
+        </div>
 
         <div className="flex flex-col gap-4">
-          {WORKS_DATA.slice(0, 7).map((work, index) => (
+          {WORKS_DATA.map((work, index) => (
             <WorkItem key={work.id} work={work} index={index} />
           ))}
         </div>
 
-        {WORKS_DATA.length > 7 && (
-          <div className="mt-8 text-center">
-            <a
-              href="/works"
-              className="inline-flex items-center px-8 py-3 border-2 border-primary-dark text-primary-dark text-sm font-medium rounded-lg hover:bg-primary-dark hover:text-white transition-colors tracking-wide"
-            >
-              すべての実績を見る（{WORKS_DATA.length}件）
-            </a>
-          </div>
-        )}
-
-        <div className="mt-8 text-center">
+        <div className="mt-12 text-center">
           <CTAButton size="lg" />
         </div>
       </div>
-    </section>
+    </div>
   );
 }
